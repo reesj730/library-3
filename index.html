@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Third</title>
+    <link rel="shortcut icon" type="image/jpg" href="https://static.thenounproject.com/png/903372-200.png"/>
+
+    <!-- import fonts -->
+    <!-- (see css) -->
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="assets/style.css"/>
+
+  </head>
+
+ <body>
+
+    <!-- drawing -->
+    <div class="drawing">
+        <canvas id='canvas'></canvas>
+        <div id='info'>For a long time it was belived...</div>
+    </div>
+
+
+    <!-- second p -->
+    <div class="beads bead-a"></div>
+    <div class="beads bead-b"></div>
+    <div class="beads bead-c"></div>
+
+    <div class="beads bead-d"></div>
+    <div class="beads bead-e"></div>
+    <div class="beads bead-f"></div>
+
+    <div class="beads bead-g"></div>
+    <div class="beads bead-h"></div>
+    <div class="beads bead-i"></div>
+
+    <div class="beads bead-j"></div>
+    <div class="beads bead-k"></div>
+    <div class="beads bead-l"></div>
+
+
+    <div class="lines line1"></div>
+    <div class="lines line3"></div>
+    <div class="lines line4"></div>
+    <div class="lines line5"></div>
+    <div class="lines line6"></div>
+    <div class="lines line7"></div>
+    <div class="lines line8"></div>
+    <div class="lines line9"></div>
+    <div class="lines line10"></div>
+    <div class="lines line11"></div>
+    <div class="lines line12"></div>
+    <div class="lines line13"></div>
+    <div class="lines line14"></div>
+    <div class="lines line15"></div>
+    <div class="lines line16"></div>
+    <div class="lines line17"></div>
+    <div class="lines line18"></div>
+    <div class="lines line19"></div>
+    <div class="lines line20"></div>
+    <div class="lines line21"></div>
+    <div class="lines line22"></div>
+    <div class="lines line23"></div>
+    <div class="lines line24"></div>
+
+    <div class="text-2">
+        <p>Five hundred years ago, the chief of an upper hexagon came upon a book as confusing as the others, but which had nearly <a href="https://reesj730.github.io/library-1"><span>two pages of homogeneous lines</span></a>. He showed his find to a wandering decoder who told him the lines were written in Portuguese; others said they were Yiddish. Within a century, the language was established: <a href="https://reesj730.github.io/library-2"><span>a Samoyedic Lithuanian dialect of Guarani</span></a>, with classical Arabian inflections. The content was also deciphered: some <a href="https://reesj730.github.io/library-4"><span>notions of combinative analysis</span></a>, illustrated with examples of variations with unlimited repetition. These examples made it possible for a librarian of genius to discover the fundamental law of the Library. This thinker observed that all the books, no matter how diverse they might be, are made up of the same elements: <a href="https://reesj730.github.io/library-6"><span>the space, the period, the comma, the twenty-two letters of the alphabet</span></a>. He also alleged a fact which travelers have confirmed: <a href="https://reesj730.github.io/library-7"><span>In the vast Library there are no two identical books</span></a>. From these two incontrovertible premises he deduced that the Library is total and that its shelves register all the possible combinations of the twenty-odd orthographical symbols <a href="https://reesj730.github.io/library-5"><span>(a number which, though extremely vast, is not infinite)</span></a>: Everything: the minutely detailed history of the future, <a href="https://reesj730.github.io/library-2"><span>the archangels' autobiographies</span></a>, the faithful catalogues of the Library, thousands and thousands of false catalogues, the demonstration of the fallacy of those catalogues, the demonstration of the fallacy of the true catalogue, <a href="https://reesj730.github.io/library-4"><span>the Gnostic gospel of Basilides</span></a>, the commentary on that gospel, the commentary on the commentary on that gospel, the true story of your death, the translation of every book in all languages, <a href="https://reesj730.github.io/library-6"><span>the interpolations of every book in all books</span></a>.
+        </p>
+
+    </div>
+
+    <div class="button">
+        <a href="https://reesj730.github.io/stories-as-networks/" class="up round">&#8250;</a>
+        <a href="https://reesj730.github.io/library-4" class="next round">&#8250;</a>
+    </div>
+
+<script>
+// Application variables
+var position = {x: 0, y: window.innerHeight/2};
+var counter = 0;
+var minFontSize = 3;
+var angleDistortion = 0;
+var letters = "For a long time it was believed that these impenetrable books corresponded to past or remote languages. It is true that the most ancient men, the first librarians, used a language quite different from the one we now speak; it is true that a few miles to the right the tongue is dialectical and that ninety floors farther up, it is incomprehensible. All this, I repeat, is true, but four hundred and ten pages of inalterable MCV's cannot correspond to any language, no matter how dialectical or rudimentary it may be. Some insinuated that each letter could influence the following one and that the value of MCV in the third line of page 71 was not the one the same series may have in another position on another page, but this vague thesis did not prevail. Others thought of cryptographs; generally, this conjecture has been accepted, though not in the sense in which it was formulated by its originators.'";
+
+// Drawing variables
+var canvas;
+var context;
+var mouse = {x: 0, y: 0, down: false}
+
+function init() {
+  canvas = document.getElementById( 'canvas' );
+  context = canvas.getContext( '2d' );
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  
+  canvas.addEventListener('mousemove', mouseMove, false);
+  canvas.addEventListener('mousedown', mouseDown, false);
+  canvas.addEventListener('mouseup',   mouseUp,   false);
+  canvas.addEventListener('mouseout',  mouseUp,  false);  
+  canvas.addEventListener('dblclick', doubleClick, false);
+  
+  window.onresize = function(event) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+}
+
+function mouseMove ( event ){
+  mouse.x = event.pageX;
+  mouse.y = event.pageY;
+  draw();
+}
+
+function draw() {
+ if ( mouse.down ) {
+    var d = distance( position, mouse );
+    var fontSize = minFontSize + d/2;
+    var letter = letters[counter];
+    var stepSize = textWidth( letter, fontSize );
+    
+    if (d > stepSize) {
+      var angle = Math.atan2(mouse.y-position.y, mouse.x-position.x);
+      
+      context.font = fontSize + "px Inknut Antiqua";
+    
+      context.save();
+      context.translate( position.x, position.y);
+      context.rotate( angle );
+      context.fillText(letter,0,0);
+      context.restore();
+
+      counter++;
+      if (counter > letters.length-1) {
+        counter = 0;
+      }
+    
+    //console.log (position.x + Math.cos( angle ) * stepSize)
+      position.x = position.x + Math.cos(angle) * stepSize;
+      position.y = position.y + Math.sin(angle) * stepSize;
+
+      }
+  }     
+}
+
+function distance( pt, pt2 ){
+  
+  var xs = 0;
+  var ys = 0;
+ 
+  xs = pt2.x - pt.x;
+  xs = xs * xs;
+ 
+  ys = pt2.y - pt.y;
+  ys = ys * ys;
+ 
+  return Math.sqrt( xs + ys );
+}
+
+function mouseDown( event ){
+  mouse.down = true;
+  position.x = event.pageX;
+  position.y = event.pageY;
+  
+  document.getElementById('info').style.display = 'none';
+}
+
+function mouseUp( event ){
+    mouse.down = false;
+}
+
+function doubleClick( event ) {
+  canvas.width = canvas.width; 
+}
+
+function textWidth( string, size ) {
+  context.font = size + "px Inknut Antiqua";
+  
+  if ( context.fillText ) {
+    return context.measureText( string ).width;
+  } else if ( context.mozDrawText) {
+    return context.mozMeasureText( string );
+  }
+  
+ };
+
+init();
+</script>
+
+ </body>
+
+</html>

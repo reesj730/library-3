@@ -1,0 +1,370 @@
+
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500|Inknut+Antiqua:400,500,600,700,800|Alegreya:800,900');
+
+body{
+	position: relative;
+	width: 1440px;
+	height: 1695px;
+	background: #FFFFFF;
+}
+
+
+/* drawing */
+
+@import "compass/css3";
+
+.drawing {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  overflow: hidden;
+  
+    &:hover {
+   span {
+      display: none; 
+    }
+  }
+}
+
+canvas {
+ cursor: crosshair;
+  
+}
+
+#info {
+  font-family: Inknut Antiqua;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  color: #023AFF;
+  margin-top: -580px;
+  margin-left: -600px;
+}
+
+
+/* text settings */
+
+html {
+  -ms-text-size-adjust: 100%; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 1 */
+  box-sizing: border-box; /* 2 */
+  scroll-behavior: smooth; /* 3 */
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale; /* 2 */
+  -webkit-font-smoothing: antialiased; /* 2 */
+  overflow-x: hidden; /* 3 */
+}
+
+p{
+	font-family: Inknut Antiqua;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 30px;
+	/* or 167% */
+    color: #000000;
+}
+
+.text-2{
+	position: absolute;
+	width: 783px;
+	height: 681px;
+	left: 123px;
+	top: 870.5px;
+}
+
+span{
+	color: #023AFF;
+}
+
+/* animated beads */
+
+.beads{
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   z-index:1;
+   background: #023AFF; 
+}
+
+.bead-a {
+	top: 54.8%;
+	animation: floating 2s linear 0s infinite alternate;
+}
+
+.bead-b {
+	top: 60.2%;
+	animation: floating 4s linear 0s infinite alternate;
+}
+
+.bead-c {
+	top: 62%;
+	animation: floating 6s linear 0s infinite alternate;
+}
+
+.bead-d {
+	top: 63.7%;
+	animation: floating 3s linear 0s infinite alternate;
+}
+
+.bead-e {
+	top: 86.7%;
+	animation: floating 6s linear 0s infinite alternate;
+}
+
+.bead-f {
+	top: 72.6%;
+	animation: floating 4s linear 0s infinite alternate;
+}
+
+.bead-g {
+	top: 92%;
+	animation: floating 3s linear 0s infinite alternate;
+}
+
+.bead-h {
+	top: 90.2%;
+	animation: floating 5s linear 0s infinite alternate;
+}
+
+.bead-i {
+	top: 79.7%;
+	animation: floating 2.5s linear 0s infinite alternate;
+}
+
+.bead-j {
+	top: 67.3%;
+	animation: floating 5s linear 0s infinite alternate;
+}
+
+.bead-k {
+	top: 83.2%;
+	animation: floating 4s linear 0s infinite alternate;
+}
+
+.bead-l {
+	top: 76%;
+	animation: floating 2s linear 0s infinite alternate;
+}
+
+@keyframes floating {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 65%;
+  }
+}
+
+
+/* lines for text-2 */
+
+.lines{
+	position: absolute;
+	width: 1440px;
+	height: 0px;
+	border: 1px solid rgba(0,0,0,0.25);
+}
+
+.line1{
+	left: 0px;
+	top: 909px;
+}
+
+.line3{
+	left: 0px;
+	top: 939px;
+}
+
+.line4{
+	left: 0px;
+	top: 969px;
+}
+
+.line5{
+	left: 0px;
+	top: 999px;
+}
+
+.line6{
+	left: 0px;
+	top: 1029px;
+}
+
+.line7{
+	left: 0px;
+	top: 1059px;
+}
+
+
+.line8{
+	left: 0px;
+	top: 1089px;
+}
+
+.line9{
+	left: 0px;
+	top: 1119px;
+}
+
+.line10{
+	left: 0px;
+	top: 1149px;
+}
+
+.line11{
+	left: 0px;
+	top: 1179px;
+}
+
+.line12{
+	left: 0px;
+	top: 1209px;
+}
+
+.line13{
+	left: 0px;
+	top: 1239px;
+}
+
+.line14{
+	left: 0px;
+	top: 1269px;
+}
+
+.line15{
+	left: 0px;
+	top: 1299px;
+}
+
+.line16{
+	left: 0px;
+	top: 1329px;
+}
+
+.line17{
+	left: 0px;
+	top: 1359px;
+}
+
+.line18{
+	left: 0px;
+	top: 1389px;
+}
+
+.line19{
+	left: 0px;
+	top: 1419px;
+}
+
+.line20{
+	left: 0px;
+	top: 1449px;
+}
+
+.line21{
+	left: 0px;
+	top: 1479px;
+}
+
+.line22{
+	left: 0px;
+	top: 1509px;
+}
+
+.line23{
+	left: 0px;
+	top: 1539px;
+}
+
+.line24{
+	left: 0px;
+	top: 1569px;
+}
+
+
+/* buttons */
+
+
+a:hover {
+  background-color: #023AFF;
+  color: white;
+}
+
+/* media queries */
+
+
+@media screen and (max-width:800px) {
+	@keyframes floating {
+  	0% {
+    	left: 100%;
+  	}
+  	100% {
+    	left: -10%;
+  	}
+}
+.text-2{
+	overflow-y: auto;
+	overflow-x: hidden;
+	width: 290px;
+	top: 57.3%;
+	left: 8%;
+	transform: rotate(-360deg) translateY(-100px);
+}
+#info {
+  font-size: 25px;
+  position: absolute; 
+  top: 50%;
+  left: 20%;
+  margin-top: -580px;
+  margin-left: -260px;
+}
+}
+
+/* hover effects */
+
+a{
+  text-decoration: none;
+}
+
+a :hover {
+  background-color: #023AFF;
+  color: white;
+}
+
+/* linear navigation */ 
+
+.button{
+	position: absolute;
+	top: 96%;
+	margin-left: 8%;
+	text-decoration: none;
+}
+
+.next, .up {
+  background-color: black;
+  color: white;
+
+}
+
+.round {
+  border-radius: 50%;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+
+
+
+
+
+
+
+
+
